@@ -5,18 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     #region Variables
     
-    public static float horizontalSpeed = 10f;
-    public static float verticalSpeed = 10f;
+    public static float horizontalSpeed = 7.5f;
+    public static float verticalSpeed = 7.5f;
 
-    public static float airHorizontalSpeed = 7.5f;
-    public static float airVerticalSpeed = 7.5f;
+    public static float airHorizontalSpeed = 5f;
+    public static float airVerticalSpeed = 5f;
 
     public float currentHSpeed;
     public float currentVSpeed;
 
     public float jumpSpeed;
+    public float fallSpeed;
 
     private float canJump =0f;
+    public float jumpRate;
 
     private bool isInAir = false;
 
@@ -43,8 +45,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown("space") && Time.time > canJump)
         {
             rb.AddForce (transform.up * jumpSpeed, ForceMode.Impulse);
+            rb.AddForce(-transform.up * fallSpeed, ForceMode.Impulse);
             Debug.Log("Jump!");
-            canJump = Time.time + 1.5f;
+            canJump = Time.time + jumpRate;
             isInAir = true;
             currentHSpeed = airHorizontalSpeed;
             currentVSpeed = airVerticalSpeed;
