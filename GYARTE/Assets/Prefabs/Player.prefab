@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1737953391700616}
   m_IsPrefabParent: 1
+--- !u!1 &1141453412438536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4849465945439048}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1375562260032692
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620065617894476}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.51, y: 0.102, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4301736621105812}
@@ -95,8 +110,22 @@ Transform:
   m_Children:
   - {fileID: 4995311252737868}
   - {fileID: 4224586426148596}
+  - {fileID: 4849465945439048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4849465945439048
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141453412438536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.51, y: 0.102, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4301736621105812}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4995311252737868
 Transform:
@@ -105,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375562260032692}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.51, y: 0.102, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4301736621105812}
@@ -294,9 +323,13 @@ MonoBehaviour:
   rangedAttackCamera: {fileID: 20031227226302584}
   rangedRange: 20
   rangedDamage: 10
-  useLineRenderer: 1
-  lineRenderer: {fileID: 0}
-  player: {fileID: 4301736621105812}
+  rangedAttackTrailPrefab: {fileID: 4081349671182956, guid: fb3a938480d4e26449702bba2cecfd38,
+    type: 2}
+  firePoint: {fileID: 4849465945439048}
+  muzzleFlash: {fileID: 1352968028671524, guid: 987b5b7c069107345aa238dd6fdea3ca,
+    type: 2}
+  hitParticles: {fileID: 198371172403329080, guid: cd708fb46603b2340a0a1e65f44e16ba,
+    type: 2}
 --- !u!114 &114869491614306868
 MonoBehaviour:
   m_ObjectHideFlags: 1

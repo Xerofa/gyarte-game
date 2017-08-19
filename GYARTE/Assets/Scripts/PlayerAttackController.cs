@@ -16,16 +16,14 @@ public class PlayerAttackController : MonoBehaviour {
     public float rangedRange;
     public float rangedDamage;
 
+    public Transform rangedAttackTrailPrefab;
+    public Transform firePoint;
 
-#endregion
-
-
-    void Start () 
-	{
-
-	}
+    public GameObject muzzleFlash;
+    public ParticleSystem hitParticles;
+    #endregion
 	
-	void FixedUpdate () 
+	void Update () 
 	{
 
         if (Input.GetKeyDown("mouse 1"))
@@ -47,28 +45,43 @@ public class PlayerAttackController : MonoBehaviour {
         if(Physics.Raycast(meleeAttackCamera.transform.position, meleeAttackCamera.transform.forward, out hit, meleeRange))
         {
             Debug.Log(hit.transform.name);
-
-            TargetHit target = hit.transform.GetComponent<TargetHit>();
-            if(target != null)
+            EnemyHealth enemy = hit.transform.GetComponent<EnemyHealth>();
+            if(enemy != null)
             {
-                target.TakeDamage(meleeDamage);
+                enemy.TakeDamage(meleeDamage);
             }
         }
     }
 
+    // En raycast skjuts ut som letar efter något objekt med "TargetHit"!
     void RangedAttack()
     {
         RaycastHit hit;
+        LineEffect();
+        MuzzleFlash();
         if (Physics.Raycast(rangedAttackCamera.transform.position, rangedAttackCamera.transform.forward, out hit, rangedRange))
         {
             Debug.Log(hit.transform.name);
-
-            TargetHit target = hit.transform.GetComponent<TargetHit>();
-            if(target != null)
+            EnemyHealth enemy = hit.transform.GetComponent<EnemyHealth>();
+            if(enemy != null)
             {
-                target.TakeDamage(rangedDamage);
+                enemy.TakeDamage(rangedDamage);
+                if (hit.transform.tag == ("Enemy"))
+                {
+                    Instantiate(hitParticles, hit.point, Quaternion.identity);
+                }
             }
         }
+    }
 
+    void LineEffect()
+    {
+        Instantiate(rangedAttackTrailPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    void MuzzleFlash()
+    {
+        GameObject muzzleFlashIns = Instantiate(muzzleFlash, firePoint.position, muzzleFlash.transform.rotation);
+        Destroy(muzzleFlashIns , .5f);
     }
 }
