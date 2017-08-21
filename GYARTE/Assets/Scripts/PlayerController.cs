@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     #region Variables
-    
-    public static float horizontalSpeed = 7.5f;
-    public static float verticalSpeed = 7.5f;
 
-    public static float airHorizontalSpeed = 5f;
-    public static float airVerticalSpeed = 5f;
+    public static float movementSpeed = 7.5f;
 
-    public float currentHSpeed;
-    public float currentVSpeed;
+    public static float airMovementSpeed = 5f;
+
+    public float currentMovementSpeed;
 
     public float jumpSpeed;
     public float fallSpeed;
@@ -29,14 +26,15 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentHSpeed = horizontalSpeed;
-        currentVSpeed = verticalSpeed;
+        currentMovementSpeed = movementSpeed;
     }
 
 	void FixedUpdate () 
 	{
-        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * currentHSpeed, 0f, 0f, Space.World);
-        transform.Translate(0f, 0f, Input.GetAxis("Vertical") * Time.deltaTime * currentVSpeed, Space.World);
+        
+        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * currentMovementSpeed, 0f, 0f, Space.World);
+        transform.Translate(0f, 0f, Input.GetAxis("Vertical") * Time.deltaTime * currentMovementSpeed, Space.World);
+
     }
 
     void Update()
@@ -49,8 +47,7 @@ public class PlayerController : MonoBehaviour {
             Debug.Log("Jump!");
             canJump = Time.time + jumpRate;
             isInAir = true;
-            currentHSpeed = airHorizontalSpeed;
-            currentVSpeed = airVerticalSpeed;
+            currentMovementSpeed = airMovementSpeed;
         }
        
     }
@@ -60,8 +57,7 @@ public class PlayerController : MonoBehaviour {
         if(col.gameObject.tag == "Enviroment")
         {
             isInAir = false;
-            currentHSpeed = horizontalSpeed;
-            currentVSpeed = verticalSpeed;
+            currentMovementSpeed = movementSpeed;
         }
     }
     

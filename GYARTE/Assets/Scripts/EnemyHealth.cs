@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
-    public float health = 50f;
+    public float startinghealth = 50f;
+    public float currenthealth;
 
     bool isDead = false;
+
+    void Start()
+    {
+        currenthealth = startinghealth;
+    }
 
     public void TakeDamage(float amount)
     {
         if (isDead)
             return;
 
-        health -= amount;
+        currenthealth -= amount;
 
-
-        if (health <= 0)
+        if (currenthealth <= 0)
         {
-            Die();
-            isDead = true;
+            Die();           
         }
     }
 
     void Die()
     {
+        isDead = true;
         Destroy(gameObject);
     }
 }

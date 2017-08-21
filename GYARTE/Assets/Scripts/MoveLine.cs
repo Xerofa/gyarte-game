@@ -12,8 +12,17 @@ public class MoveLine: MonoBehaviour {
 	
    void Update () 
    {
-        transform.Translate(firePoint.transform.right * Time.deltaTime * moveSpeed);
-        Destroy(this.gameObject, .16f);
+        transform.Translate(firePoint.transform.right * Time.deltaTime * moveSpeed);       
    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Enviroment")
+        {
+            Debug.Log(collision.gameObject.tag);
+            Destroy(gameObject);
+        }
+    }
+
 
 }
