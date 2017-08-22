@@ -6,40 +6,31 @@ public class PlayerController : MonoBehaviour {
     #region Variables
 
     public static float movementSpeed = 7.5f;
-
     public static float airMovementSpeed = 5f;
-
     public float currentMovementSpeed;
-
     public float jumpSpeed;
     public float fallSpeed;
-
     private float canJump =0f;
     public float jumpRate;
-
-    private bool isInAir = false;
-
+    private bool isInAir;
+    public Rigidbody rb;
     #endregion
 
-    public Rigidbody rb;
-     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         currentMovementSpeed = movementSpeed;
+        isInAir = false;
     }
 
 	void FixedUpdate () 
-	{
-        
+	{      
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * currentMovementSpeed, 0f, 0f, Space.World);
         transform.Translate(0f, 0f, Input.GetAxis("Vertical") * Time.deltaTime * currentMovementSpeed, Space.World);
-
     }
 
     void Update()
     {
- 
         if (Input.GetKeyDown("space") && Time.time > canJump)
         {
             rb.AddForce (transform.up * jumpSpeed, ForceMode.Impulse);
@@ -48,8 +39,7 @@ public class PlayerController : MonoBehaviour {
             canJump = Time.time + jumpRate;
             isInAir = true;
             currentMovementSpeed = airMovementSpeed;
-        }
-       
+        }      
     }
 
     void OnCollisionEnter(Collision col)
@@ -59,6 +49,5 @@ public class PlayerController : MonoBehaviour {
             isInAir = false;
             currentMovementSpeed = movementSpeed;
         }
-    }
-    
+    }   
 }
