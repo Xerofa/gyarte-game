@@ -7,11 +7,17 @@ public class PlayerMeleeAttack : MonoBehaviour
     #region Variables
     [Header("Melee Attack Variables")]
     public Camera meleeAttackCamera;
+    int layerMask = 1 << 8;
 
     public float meleeRange;
     public float meleeDamage;
     #endregion
 
+    void Start()
+    {
+        layerMask = ~layerMask;
+    }
+    
     void Update()
     {
         if (Input.GetKeyDown("mouse 1"))
@@ -25,7 +31,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     void MeleeAttack()
     {
         RaycastHit hit;
-        if (Physics.Raycast(meleeAttackCamera.transform.position, meleeAttackCamera.transform.forward, out hit, meleeRange))
+        if (Physics.Raycast(meleeAttackCamera.transform.position, meleeAttackCamera.transform.forward, out hit, meleeRange, layerMask))
         {
             Debug.Log(hit.transform.name);
             EnemyHealth enemy = hit.transform.GetComponent<EnemyHealth>();

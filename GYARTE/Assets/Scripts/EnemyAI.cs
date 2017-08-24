@@ -14,6 +14,7 @@ public class EnemyAI: MonoBehaviour {
     public float attackDist;
     public float chaseDist;
     public float stopChaseDist;
+    float checkForPlayer = 0;
 
     [Header("Attack Variables")]
     public float damage;
@@ -38,8 +39,11 @@ public class EnemyAI: MonoBehaviour {
             GoToNextPoint();
         }
 
-        if (player.position == null)
+        if (player == null)
+        {
+            FindPlayer();
             return;
+        }
 
         if (Vector3.Distance(transform.position, player.position) >= chaseDist && Vector3.Distance(transform.position, player.position) < stopChaseDist)
         {
@@ -83,6 +87,17 @@ public class EnemyAI: MonoBehaviour {
                 Player.TakeDamage(damage);
                 Debug.Log("Player is attacked!");
             }
+        }
+    }
+
+    void FindPlayer()
+    {
+        if (checkForPlayer <= Time.time)
+        {
+            GameObject searchResult = GameObject.FindGameObjectWithTag("Player");
+            if (searchResult != null)
+                player = searchResult.transform;
+            checkForPlayer = Time.time + 0.5f;
         }
     }
 }

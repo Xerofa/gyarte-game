@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour {
     public float fallSpeed;
     private float canJump =0f;
     public float jumpRate;
-    private bool isInAir;
     public Rigidbody rb;
     #endregion
 
@@ -20,13 +19,16 @@ public class PlayerController : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         currentMovementSpeed = movementSpeed;
-        isInAir = false;
     }
 
 	void FixedUpdate () 
 	{      
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * currentMovementSpeed, 0f, 0f, Space.World);
         transform.Translate(0f, 0f, Input.GetAxis("Vertical") * Time.deltaTime * currentMovementSpeed, Space.World);
+
+        Vector3 NextDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        if (NextDir != Vector3.zero)
+            transform.rotation = Quaternion.LookRotation(NextDir);
     }
 
     void Update()
@@ -37,7 +39,6 @@ public class PlayerController : MonoBehaviour {
             rb.AddForce(-transform.up * fallSpeed, ForceMode.Impulse);
             Debug.Log("Jump!");
             canJump = Time.time + jumpRate;
-            isInAir = true;
             currentMovementSpeed = airMovementSpeed;
         }      
     }
@@ -46,7 +47,6 @@ public class PlayerController : MonoBehaviour {
     {
         if(col.gameObject.tag == "Enviroment")
         {
-            isInAir = false;
             currentMovementSpeed = movementSpeed;
         }
     }   

@@ -25,20 +25,10 @@ public class PlayerHealth: MonoBehaviour {
 
         currenthealth -= amount;
 
-        if (currenthealth <= 0)
+        if (currenthealth <= 0f)
         {
-            Die();
+            GameManager.KillPlayer(this);
+            isDead = true;
         }
     }
-
-   public void Die()
-   {
-        isDead = true;
-        eAI.GetComponent<EnemyAI>().enabled = false;
-        pCO.GetComponent<PlayerController>().enabled = false;
-        pRA.GetComponent<PlayerRangedAttack>().enabled = false;
-        pMA.GetComponent<PlayerMeleeAttack>().enabled = false;       
-        Debug.Log("Game Over!");
-        //Visa Game Over skärm, via ett GameManager!!
-   }
 }

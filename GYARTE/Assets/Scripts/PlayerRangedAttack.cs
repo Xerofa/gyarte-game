@@ -6,6 +6,7 @@ public class PlayerRangedAttack: MonoBehaviour {
     #region Variables
     [Header("Ranged Attack Variables")]
     public Camera rangedAttackCamera;
+    int layerMask = 1 << 8;
 
     public float range;
     public float damage;
@@ -13,7 +14,6 @@ public class PlayerRangedAttack: MonoBehaviour {
     public Transform rangedAttackTrailPrefab;
     public Transform firePoint;
  
-
     public GameObject muzzleFlash;
     public GameObject hitParticles;
 
@@ -21,9 +21,10 @@ public class PlayerRangedAttack: MonoBehaviour {
     public float timeBetweenShots;
 
     #endregion
+
     void Start()
     {
-
+        layerMask = ~layerMask;
     }
 
     void Update()
@@ -36,8 +37,6 @@ public class PlayerRangedAttack: MonoBehaviour {
             RangedAttack();
         }
     }
-
-   
   
      // En raycast skjuts ut som letar efter något objekt med "TargetHit"!
       void RangedAttack()
@@ -46,13 +45,10 @@ public class PlayerRangedAttack: MonoBehaviour {
         RaycastHit hit;
         LineEffect();
         MuzzleFlash();
-
-
-
-        if (Physics.Raycast(rangedAttackCamera.transform.position, rangedAttackCamera.transform.forward, out hit, range))
+        if (Physics.Raycast(rangedAttackCamera.transform.position, rangedAttackCamera.transform.forward, out hit, range, layerMask))
         {
             Debug.Log(hit.transform.name);
-            Debug.DrawLine(firePoint.position, hit.point);
+            Debug.DrawLine(firePoint.position, hit.point, Color.red);
             EnemyHealth enemy = hit.transform.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
@@ -63,10 +59,7 @@ public class PlayerRangedAttack: MonoBehaviour {
                     Destroy(hitParticlesIns, .5f);
                 }
             }
-
-
         }
-
       }
  
      void LineEffect()
