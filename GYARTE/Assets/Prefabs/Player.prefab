@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 23745199419323506}
   m_Layer: 8
   m_Name: GFX
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,8 +449,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackCamera: {fileID: 20862095483940592}
+  hitParticles: {fileID: 1352968028671524, guid: cd708fb46603b2340a0a1e65f44e16ba,
+    type: 2}
   meleeRange: 3
   meleeDamage: 25
+  ammoWhenHitEnemy: 1
 --- !u!114 &114075307510222832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -495,6 +498,8 @@ MonoBehaviour:
   hitParticles: {fileID: 1352968028671524, guid: cd708fb46603b2340a0a1e65f44e16ba,
     type: 2}
   timeBetweenShots: 0.5
+  maxAmmo: 5
+  ammoText: {fileID: 0}
 --- !u!114 &114300436276995414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -506,12 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1dff2ff6c9dee43abd024c7931f3c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startinghealth: 100
   currenthealth: 0
-  eAI: {fileID: 0}
-  pCO: {fileID: 114739953738237298}
-  pRA: {fileID: 114185302648227860}
-  pMA: {fileID: 114039989049230924}
+  healthBar: {fileID: 0}
 --- !u!114 &114739953738237298
 MonoBehaviour:
   m_ObjectHideFlags: 1

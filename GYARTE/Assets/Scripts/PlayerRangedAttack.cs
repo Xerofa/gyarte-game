@@ -1,47 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRangedAttack: MonoBehaviour {
     #region Variables
     [Header("Ranged Attack Variables")]
     public Camera rangedAttackCamera;
     int layerMask = 1 << 8;
-
     public float range;
-    public float damage;
-  
+    public float damage; 
     public Transform rangedAttackTrailPrefab;
     public Transform firePoint;
- 
     public GameObject muzzleFlash;
     public GameObject hitParticles;
-
     float timer;
     public float timeBetweenShots;
-
+    public int maxAmmo;
+    public static int currentAmmo;
+    [Header("UI STUFF")]
+    public Text ammoText;
     #endregion
 
     void Start()
     {
         layerMask = ~layerMask;
+        currentAmmo = maxAmmo;
+        ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
+        ammoText.text = currentAmmo.ToString();
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-
+        if (currentAmmo <= 0)
+            return;
         if (Input.GetKeyDown("mouse 0") && timer >= timeBetweenShots)
         {
-            Debug.Log("Ranged Attack!");
             RangedAttack();
         }
+        ammoText.text = currentAmmo.ToString();
     }
   
-     // En raycast skjuts ut som letar efter något objekt med "TargetHit"!
       void RangedAttack()
       {
         timer = 0f;
+        currentAmmo--;
+        Debug.Log(currentAmmo);
         RaycastHit hit;
         LineEffect();
         MuzzleFlash();
@@ -57,6 +60,9 @@ public class PlayerRangedAttack: MonoBehaviour {
                 {
                     GameObject hitParticlesIns = Instantiate(hitParticles, hit.point, Quaternion.identity);
                     Destroy(hitParticlesIns, .5f);
+                    currentAmmo = maxAmmo;
+                    //Debug.Log(currentAmmo);
+                    //Debug.Log("You received " + currentAmmo + " shots from RangedAttack");
                 }
             }
         }

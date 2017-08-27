@@ -8,9 +8,10 @@ public class PlayerMeleeAttack : MonoBehaviour
     [Header("Melee Attack Variables")]
     public Camera meleeAttackCamera;
     int layerMask = 1 << 8;
-
+    public GameObject hitParticles;
     public float meleeRange;
     public float meleeDamage;
+    public int ammoWhenHitEnemy;
     #endregion
 
     void Start()
@@ -22,7 +23,6 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         if (Input.GetKeyDown("mouse 1"))
         {
-            Debug.Log("Melee Attack!");
             MeleeAttack();
         }
     }
@@ -38,6 +38,14 @@ public class PlayerMeleeAttack : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(meleeDamage);
+                if (hit.transform.tag == ("Enemy"))
+                {
+                    GameObject hitParticlesIns = Instantiate(hitParticles, hit.point, Quaternion.identity);
+                    Destroy(hitParticlesIns, .5f);
+                    //Få ammo!
+                    PlayerRangedAttack.currentAmmo = 5;
+                    Debug.Log("You received " + PlayerRangedAttack.currentAmmo + " shots from MeleeAttack");
+                }
             }
         }
     }

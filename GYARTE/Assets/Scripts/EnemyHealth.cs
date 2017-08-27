@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour {
 
     public float startinghealth = 50f;
     public float currenthealth;
-
     bool isDead = false;
+    [Header("UI STUFF")]
+    public Image healthBar;
 
     void Start()
     {
@@ -20,6 +22,8 @@ public class EnemyHealth : MonoBehaviour {
             return;
 
         currenthealth -= amount;
+
+        healthBar.fillAmount = currenthealth / startinghealth;
 
         if (currenthealth <= 0)
         {

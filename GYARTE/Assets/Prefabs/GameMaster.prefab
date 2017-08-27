@@ -85,3 +85,4 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4908354257485772}
   spawnDelay: 3
+  _healthBar: {fileID: 0}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager: MonoBehaviour {
     #region Variables
@@ -10,6 +11,7 @@ public class GameManager: MonoBehaviour {
     public Transform spawnPoint;
     public int spawnDelay;
     private static int remainingLives = 3;
+    public Image _healthBar;
     #endregion
 
     void Start () 
@@ -39,12 +41,13 @@ public class GameManager: MonoBehaviour {
     {
         yield return new WaitForSeconds (spawnDelay);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        _healthBar.fillAmount = PlayerHealth.startinghealth;
     }
 
     public static void KillPlayer(PlayerHealth player)
     {
         Destroy(player.gameObject);
-        Debug.Log("Dead, respawning soon!");
+        //Debug.Log("Dead, respawning soon!");
         remainingLives--;
         Debug.Log(remainingLives);
         if(remainingLives <= 0)
@@ -60,5 +63,10 @@ public class GameManager: MonoBehaviour {
     public void EndGame()
     {
         Debug.Log("Game Over!");
+    }
+
+    public static void LevelComplete()
+    {
+        Debug.Log("Level Completed!");
     }
 }

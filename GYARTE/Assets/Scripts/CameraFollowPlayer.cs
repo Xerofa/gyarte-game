@@ -31,7 +31,7 @@ public class CameraFollowPlayer: MonoBehaviour {
             return;
         }
 
-        cameraFollow.position = new Vector3(player.position.x + cameraOffsetX, 0 + cameraOffsetY, player.position.z / 2 + cameraOffsetZ);
+        cameraFollow.position = new Vector3(player.position.x + cameraOffsetX, 0 + cameraOffsetY, player.position.z / 1.5f + cameraOffsetZ);
     }
 
     void FindPlayer()

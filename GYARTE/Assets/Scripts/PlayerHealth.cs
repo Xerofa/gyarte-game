@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth: MonoBehaviour {
     #region Variables
-    public float startinghealth = 100f;
+    public static float startinghealth = 100f;
     public float currenthealth;
     bool isDead = false;
-    public EnemyAI eAI;
-    public PlayerController pCO;
-    public PlayerRangedAttack pRA;
-    public PlayerMeleeAttack pMA;
+    [Header("UI stuff")]
+    public Image healthBar;
     #endregion
 
     void Start()
     {
         currenthealth = startinghealth;
+        healthBar = GameObject.Find("PlayerHP").GetComponent<Image>();
     }
 
     public void TakeDamage(float amount)
@@ -24,6 +24,9 @@ public class PlayerHealth: MonoBehaviour {
             return;
 
         currenthealth -= amount;
+
+        healthBar.fillAmount = currenthealth / startinghealth;
+        //Refilla HP bar vid respawn!!!!!!!!
 
         if (currenthealth <= 0f)
         {

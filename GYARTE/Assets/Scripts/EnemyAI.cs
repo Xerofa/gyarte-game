@@ -61,7 +61,7 @@ public class EnemyAI: MonoBehaviour {
         if (waypoints.Length == 0)
             return;
         agent.destination = waypoints[wayPointIndex].position;
-        wayPointIndex = (wayPointIndex + 1) % waypoints.Length;
+        wayPointIndex = Random.Range(0, waypoints.Length);
     }
 
     void Chase()
@@ -85,7 +85,6 @@ public class EnemyAI: MonoBehaviour {
             if (Player != null)
             {
                 Player.TakeDamage(damage);
-                Debug.Log("Player is attacked!");
             }
         }
     }
