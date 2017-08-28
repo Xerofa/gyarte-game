@@ -22,16 +22,26 @@ public class PauseMenu: MonoBehaviour {
         if (ui.activeSelf)
         {
             Time.timeScale = 0f;
+            if (pRA == null)
+                return;
+            else
+            {
             pRA.GetComponent<PlayerRangedAttack>().enabled = false;
+            }
         }
         else
         {
             Time.timeScale = 1f;
+            if (pRA == null)
+                return;
+            else
+            {
             pRA.GetComponent<PlayerRangedAttack>().enabled = true;
+            }
         }
     }
 
-    public void Retry()
+    public void Restart()
     {
         Toggle();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

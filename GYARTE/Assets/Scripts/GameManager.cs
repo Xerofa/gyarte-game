@@ -11,7 +11,7 @@ public class GameManager: MonoBehaviour {
     public Transform spawnPoint;
     public int spawnDelay;
     public Image _healthBar;
-    private static int remainingLives = 3;
+    public static int remainingLives = 3;
     public GameObject gameOverUI;
     #endregion
 

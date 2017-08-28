@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 229992255}
   - component: {fileID: 229992254}
   m_Layer: 5
-  m_Name: Retry
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1002451545}
-        m_MethodName: Retry
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -527,7 +527,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RETRY
+  m_Text: RESTART
 --- !u!222 &250733685
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2812,7 +2812,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 126.54999}
-  m_SizeDelta: {x: 564.1, y: 368.1}
+  m_SizeDelta: {x: 564.1, y: 368}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610915015
 MonoBehaviour:
@@ -3077,6 +3077,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1877378579}
+  - component: {fileID: 1877378581}
+  - component: {fileID: 1877378580}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -3108,6 +3110,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1877378580
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877378578}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 648a1e9095d9a3441bbe27474c623ca2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!225 &1877378581
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1877378578}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1932509723
 GameObject:
   m_ObjectHideFlags: 0

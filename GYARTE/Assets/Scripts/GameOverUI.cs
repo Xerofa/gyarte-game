@@ -16,5 +16,12 @@ public class GameOverUI: MonoBehaviour {
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.remainingLives = 3;
+        //Debug.Log(GameManager.remainingLives);
+    }
+
+    public void Menu()
+    {
+        Debug.Log("Go to menu");
     }
 }
