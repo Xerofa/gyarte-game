@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4290653085939658}
   - component: {fileID: 114216374443888466}
+  - component: {fileID: 114967798880210566}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -86,3 +87,17 @@ MonoBehaviour:
   spawnPoint: {fileID: 4908354257485772}
   spawnDelay: 3
   _healthBar: {fileID: 0}
+  gameOverUI: {fileID: 0}
+--- !u!114 &114967798880210566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1589000850210698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9202f82129ec63f43b3812391bae2508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 0}
+  pRA: {fileID: 0}

@@ -25,7 +25,7 @@ public class PlayerRangedAttack: MonoBehaviour {
         layerMask = ~layerMask;
         currentAmmo = maxAmmo;
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
-        ammoText.text = currentAmmo.ToString();
+        ammoText.text = "Ammo: " + currentAmmo.ToString();
     }
 
     void Update()
@@ -37,7 +37,7 @@ public class PlayerRangedAttack: MonoBehaviour {
         {
             RangedAttack();
         }
-        ammoText.text = currentAmmo.ToString();
+        ammoText.text = "Ammo: " + currentAmmo.ToString();
     }
   
       void RangedAttack()

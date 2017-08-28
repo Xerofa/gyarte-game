@@ -10,8 +10,9 @@ public class GameManager: MonoBehaviour {
     public Transform playerPrefab;
     public Transform spawnPoint;
     public int spawnDelay;
-    private static int remainingLives = 3;
     public Image _healthBar;
+    private static int remainingLives = 3;
+    public GameObject gameOverUI;
     #endregion
 
     void Start () 
@@ -24,7 +25,7 @@ public class GameManager: MonoBehaviour {
           {
             Destroy(gameObject);
           }
-   }
+    }
 	
     void Update()
     {
@@ -49,7 +50,7 @@ public class GameManager: MonoBehaviour {
         Destroy(player.gameObject);
         //Debug.Log("Dead, respawning soon!");
         remainingLives--;
-        Debug.Log(remainingLives);
+        //Debug.Log(remainingLives);
         if(remainingLives <= 0)
         {
             instance.EndGame();
@@ -63,6 +64,7 @@ public class GameManager: MonoBehaviour {
     public void EndGame()
     {
         Debug.Log("Game Over!");
+        gameOverUI.SetActive(true);
     }
 
     public static void LevelComplete()

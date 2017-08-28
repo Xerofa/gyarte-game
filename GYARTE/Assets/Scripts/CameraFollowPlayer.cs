@@ -23,7 +23,7 @@ public class CameraFollowPlayer: MonoBehaviour {
             }
         }
     }
-    void Update () 
+    void FixedUpdate () 
     {
         if(player == null)
         {
