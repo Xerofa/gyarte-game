@@ -101,3 +101,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
   pRA: {fileID: 0}
+  mainMenuLevel: MainMenu
+  sceneFader: {fileID: 0}

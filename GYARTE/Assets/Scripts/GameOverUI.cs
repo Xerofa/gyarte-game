@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI: MonoBehaviour {
     #region Variables
-
+    public SceneFader sceneFader;
+    public string menuSceneName;
     #endregion
 
 
@@ -15,13 +16,13 @@ public class GameOverUI: MonoBehaviour {
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
         GameManager.remainingLives = 3;
         //Debug.Log(GameManager.remainingLives);
     }
 
     public void Menu()
     {
-        Debug.Log("Go to menu");
+        sceneFader.FadeTo(menuSceneName);
     }
 }
