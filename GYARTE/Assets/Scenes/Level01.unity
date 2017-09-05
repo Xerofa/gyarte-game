@@ -896,6 +896,26 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 193782681}
+    - target: {fileID: 195871122479835044, guid: af107050e90407b45b9d310ef03b2749,
+        type: 2}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114268656111863730, guid: af107050e90407b45b9d310ef03b2749,
+        type: 2}
+      propertyPath: chaseDist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195871122479835044, guid: af107050e90407b45b9d310ef03b2749,
+        type: 2}
+      propertyPath: m_Acceleration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 195871122479835044, guid: af107050e90407b45b9d310ef03b2749,
+        type: 2}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af107050e90407b45b9d310ef03b2749, type: 2}
   m_IsPrefabParent: 0

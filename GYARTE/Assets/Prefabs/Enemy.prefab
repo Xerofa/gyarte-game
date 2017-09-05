@@ -334,8 +334,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.0267262, z: 1}
-  m_Center: {x: 0, y: 1.0136716, z: 0}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!65 &65521255418320662
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -404,12 +404,12 @@ MonoBehaviour:
   - {fileID: 0}
   agent: {fileID: 195871122479835044}
   player: {fileID: 0}
-  chaseSpeed: 4
-  attackDist: 2
-  chaseDist: 1
+  chaseSpeed: 5
+  attackDist: 1.5
+  chaseDist: 1.5
   stopChaseDist: 6
   damage: 25
-  range: 2
+  range: 1.5
   enemyCamera: {fileID: 20328125425268170}
   timeBetweenEnemyAttack: 1.5
 --- !u!114 &114301044805915262
@@ -533,11 +533,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
-  m_Acceleration: 8
+  m_Speed: 2.5
+  m_Acceleration: 5
   avoidancePriority: 50
-  m_AngularSpeed: 1000
-  m_StoppingDistance: 0
+  m_AngularSpeed: 10000
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

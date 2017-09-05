@@ -30,11 +30,11 @@ public class EnemyAI: MonoBehaviour {
         agent.autoBraking = false;
    }
 	
-   void Update () 
+   void FixedUpdate () 
    {
         timer += Time.deltaTime;
 
-        if(!agent.pathPending && agent.remainingDistance < 0.5f)
+        if(!agent.pathPending && agent.remainingDistance < 2f)
         {
             GoToNextPoint();
         }
@@ -45,12 +45,14 @@ public class EnemyAI: MonoBehaviour {
             return;
         }
 
-        if (Vector3.Distance(transform.position, player.position) >= chaseDist && Vector3.Distance(transform.position, player.position) < stopChaseDist)
+        float dist = Vector3.Distance(transform.position, player.position);
+        if (dist > chaseDist && dist < stopChaseDist) 
         {
             Chase();
+           // Debug.Log(dist);
         }
 
-        if (Vector3.Distance(transform.position,player.position) <= attackDist && timer >= timeBetweenEnemyAttack)
+        if (dist < attackDist && timer >= timeBetweenEnemyAttack)
         {
             Attack();
         }
@@ -67,12 +69,13 @@ public class EnemyAI: MonoBehaviour {
     void Chase()
     {
         transform.LookAt(player);
-        transform.position += transform.forward * chaseSpeed * Time.deltaTime;
+        agent.destination = player.position;
         //Debug.Log("Start chase!");
     }
 
     void Attack()
     {
+        agent.destination = player.position;
         timer = 0f;
         RaycastHit hit;
         transform.LookAt(player);
