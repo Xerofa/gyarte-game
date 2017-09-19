@@ -36,11 +36,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4118477849807472}
+  - component: {fileID: 195871122479835044}
   - component: {fileID: 114268656111863730}
   - component: {fileID: 65178252802582778}
   - component: {fileID: 114301044805915262}
   - component: {fileID: 54674088986505866}
-  - component: {fileID: 195871122479835044}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -84,6 +84,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1546185121567766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4862600292663116}
+  - component: {fileID: 33843181708520716}
+  - component: {fileID: 23893049766298650}
+  m_Layer: 0
+  m_Name: Uttropstecken
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1578687165940164
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,9 +166,10 @@ Transform:
   m_LocalPosition: {x: 8, y: 0.575, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4862600292663116}
   - {fileID: 4367086907390666}
-  - {fileID: 4487877138528790}
   - {fileID: 224484903782033280}
+  - {fileID: 4487877138528790}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -167,7 +185,7 @@ Transform:
   m_Children:
   - {fileID: 4782113003770256}
   m_Father: {fileID: 4118477849807472}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4487877138528790
 Transform:
@@ -180,7 +198,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4118477849807472}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4782113003770256
 Transform:
@@ -193,6 +211,19 @@ Transform:
   m_LocalScale: {x: 0.50000036, y: 0.25, z: 0.50000036}
   m_Children: []
   m_Father: {fileID: 4367086907390666}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4862600292663116
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546185121567766}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 2.31, z: 0}
+  m_LocalScale: {x: 25, y: 25, z: 28}
+  m_Children: []
+  m_Father: {fileID: 4118477849807472}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20328125425268170
@@ -295,6 +326,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23893049766298650
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546185121567766}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 19cf08257a197c54ba402b2a682b0a91, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!33 &33064065032577718
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -302,6 +365,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578687165940164}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &33843181708520716
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546185121567766}
+  m_Mesh: {fileID: 4300000, guid: 02248cebbbb3b5a4ea9fe451aba4fff9, type: 3}
 --- !u!33 &33896857916258214
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -405,9 +475,8 @@ MonoBehaviour:
   agent: {fileID: 195871122479835044}
   player: {fileID: 0}
   chaseSpeed: 5
-  attackDist: 1.5
-  chaseDist: 1.5
-  stopChaseDist: 6
+  lookRadius: 5
+  exclamMark: {fileID: 1546185121567766}
   damage: 25
   range: 1.5
   enemyCamera: {fileID: 20328125425268170}
@@ -534,7 +603,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2.5
-  m_Acceleration: 5
+  m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 10000
   m_StoppingDistance: 2

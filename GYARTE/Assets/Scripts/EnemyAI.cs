@@ -11,10 +11,9 @@ public class EnemyAI: MonoBehaviour {
     [Header("Chase Variables")]
     public Transform player;
     public float chaseSpeed;
-    public float attackDist;
-    public float chaseDist;
-    public float stopChaseDist;
+    public float lookRadius;
     float checkForPlayer = 0;
+    public GameObject exclamMark;
 
     [Header("Attack Variables")]
     public float damage;
@@ -28,6 +27,7 @@ public class EnemyAI: MonoBehaviour {
    {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
+
    }
 	
    void FixedUpdate () 
@@ -46,17 +46,21 @@ public class EnemyAI: MonoBehaviour {
         }
 
         float dist = Vector3.Distance(transform.position, player.position);
-        if (dist > chaseDist && dist < stopChaseDist) 
+        if (dist <= lookRadius) 
         {
             Chase();
-           // Debug.Log(dist);
+            FaceTarget();
+            if (dist <= agent.stoppingDistance && timer >= timeBetweenEnemyAttack)
+            {
+                Attack();
+                FaceTarget();
+            }
         }
-
-        if (dist < attackDist && timer >= timeBetweenEnemyAttack)
+        else
         {
-            Attack();
+            exclamMark.SetActive(false);
         }
-   }
+    }
 
     public void GoToNextPoint()
     {
@@ -68,9 +72,9 @@ public class EnemyAI: MonoBehaviour {
 
     void Chase()
     {
-        transform.LookAt(player);
         agent.destination = player.position;
         //Debug.Log("Start chase!");
+        exclamMark.SetActive(true);
     }
 
     void Attack()
@@ -78,7 +82,6 @@ public class EnemyAI: MonoBehaviour {
         agent.destination = player.position;
         timer = 0f;
         RaycastHit hit;
-        transform.LookAt(player);
         //Debug.Log("Attack Player!");
         if (Physics.Raycast(enemyCamera.transform.position, enemyCamera.transform.forward, out hit, range))
         {
@@ -92,6 +95,13 @@ public class EnemyAI: MonoBehaviour {
         }
     }
 
+    void FaceTarget()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 5);
+    }
+
     void FindPlayer()
     {
         if (checkForPlayer <= Time.time)
@@ -101,5 +111,11 @@ public class EnemyAI: MonoBehaviour {
                 player = searchResult.transform;
             checkForPlayer = Time.time + 0.5f;
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }
