@@ -13,16 +13,22 @@ public class PlayerController : MonoBehaviour {
     private float canJump =0f;
     public float jumpRate;
     public Rigidbody rb;
+
+   public AudioManager aM;
+    float timerSound;
     #endregion
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         currentMovementSpeed = movementSpeed;
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
     }
 
 	void FixedUpdate () 
-	{      
+	{
+        timerSound += Time.deltaTime;
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * currentMovementSpeed, 0f, 0f, Space.World);
         transform.Translate(0f, 0f, Input.GetAxis("Vertical") * Time.deltaTime * currentMovementSpeed, Space.World);
 
@@ -40,7 +46,15 @@ public class PlayerController : MonoBehaviour {
             Debug.Log("Jump!");
             canJump = Time.time + jumpRate;
             currentMovementSpeed = airMovementSpeed;
-        }      
+        }
+        if(timerSound > .5f)
+        {
+             if (Input.GetButton("Horizontal") || Input.GetButton("Vertical") && timerSound >.7f)
+             {
+                aM.Play("PlayerWalk");
+                timerSound = 0f;
+             }
+        }
     }
 
     void OnCollisionEnter(Collision col)
