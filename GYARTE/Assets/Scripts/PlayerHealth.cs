@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth: MonoBehaviour {
     #region Variables
     //HP ändrad till 1000 för test bara, kommer att ändras tillbaks.
-    public static float startinghealth = 1000f;
+    public static float startinghealth = 1f;
     public float currenthealth;
     bool isDead = false;
     [Header("UI stuff")]

@@ -7,8 +7,8 @@ public class GameManager: MonoBehaviour {
     #region Variables
     public static GameManager instance = null;
     public Transform player;
-    public Transform playerPrefab;
-    public Transform spawnPoint;
+    public GameObject playerPrefab;
+    public GameObject currentSpawnPoint;
     public int spawnDelay;
     public Image _healthBar;
     public static int remainingLives = 3;
@@ -41,7 +41,7 @@ public class GameManager: MonoBehaviour {
     public IEnumerator RespawnPlayer()
     {
         yield return new WaitForSeconds (spawnDelay);
-        Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(playerPrefab, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
         _healthBar.fillAmount = PlayerHealth.startinghealth;
     }
 

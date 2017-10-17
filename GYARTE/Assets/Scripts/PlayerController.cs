@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     public float jumpRate;
     public Rigidbody rb;
 
-   public AudioManager aM;
+    public AudioManager aM;
     float timerSound;
     #endregion
 
@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate () 
 	{
-        timerSound += Time.deltaTime;
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * currentMovementSpeed, 0f, 0f, Space.World);
         transform.Translate(0f, 0f, Input.GetAxis("Vertical") * Time.deltaTime * currentMovementSpeed, Space.World);
 
@@ -39,6 +38,8 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
+        timerSound += Time.deltaTime;
+
         if (Input.GetKeyDown("space") && Time.time > canJump)
         {
             rb.AddForce (transform.up * jumpSpeed, ForceMode.Impulse);
