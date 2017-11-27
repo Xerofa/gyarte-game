@@ -54,7 +54,7 @@ MonoBehaviour:
   sounds:
   - name: PlayerWalk
     clip: {fileID: 8300000, guid: 3c2b65fb85b1b414192d8c3f7f0db711, type: 3}
-    volume: 1
+    volume: 0.735
     pitch: 0.89
     loop: 0
     source: {fileID: 0}
@@ -63,4 +63,10 @@ MonoBehaviour:
     volume: 0.364
     pitch: 0.57
     loop: 1
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: f8aa5ccd5ad214945acb8f3eb3179ad3, type: 3}
+    volume: 0.364
+    pitch: 1.01
+    loop: 0
     source: {fileID: 0}

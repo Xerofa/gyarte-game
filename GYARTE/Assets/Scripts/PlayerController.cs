@@ -44,16 +44,23 @@ public class PlayerController : MonoBehaviour {
         {
             rb.AddForce (transform.up * jumpSpeed, ForceMode.Impulse);
             rb.AddForce(-transform.up * fallSpeed, ForceMode.Impulse);
-            Debug.Log("Jump!");
             canJump = Time.time + jumpRate;
             currentMovementSpeed = airMovementSpeed;
+            aM.Play("Jump");
         }
-        if(timerSound > .5f)
+        if(timerSound > .5f)  //Checks every half a second instead of all the time
         {
-             if (Input.GetButton("Horizontal") || Input.GetButton("Vertical") && timerSound >.7f)
+             if (rb.velocity.y == 0)
              {
-                aM.Play("PlayerWalk");
-                timerSound = 0f;
+                if(Input.GetButton("Horizontal") || Input.GetButton("Vertical") && timerSound > .7f)
+                {
+                    aM.Play("PlayerWalk");
+                    timerSound = 0f;
+                }
+             }
+             else
+             {
+                aM.Stop("PlayerWalk");
              }
         }
     }
@@ -62,7 +69,12 @@ public class PlayerController : MonoBehaviour {
     {
         if(col.gameObject.tag == "Enviroment")
         {
-            currentMovementSpeed = movementSpeed;
+            if(timerSound > .5f)
+            {
+                currentMovementSpeed = movementSpeed;
+                aM.Play("Land");
+            }
         }
-    }   
+    }
 }
+

@@ -7,11 +7,15 @@ public class Checkpoint: MonoBehaviour {
     public GameManager gameManager;
     public Transform spawnPoint;
     public bool alreadyPlayed = false;
+    public GameObject greencheckPointModel;
+    public GameObject redcheckPointModel;
     #endregion
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        redcheckPointModel.SetActive(true);
+        greencheckPointModel.SetActive(false);
     }
 
    void OnTriggerEnter(Collider col)
@@ -21,6 +25,8 @@ public class Checkpoint: MonoBehaviour {
             gameManager.currentSpawnPoint = gameObject;
             Debug.Log("Entered " + gameManager.currentSpawnPoint + "!!");
             alreadyPlayed = true;
+            redcheckPointModel.SetActive(false);
+            greencheckPointModel.SetActive(true);
         }
     }
 }
