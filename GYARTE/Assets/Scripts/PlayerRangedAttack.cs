@@ -61,8 +61,6 @@ public class PlayerRangedAttack: MonoBehaviour {
                     GameObject hitParticlesIns = Instantiate(hitParticles, hit.point, Quaternion.identity);
                     Destroy(hitParticlesIns, .5f);
                     currentAmmo = maxAmmo;
-                    //Debug.Log(currentAmmo);
-                    //Debug.Log("You received " + currentAmmo + " shots from RangedAttack");
                 }
             }
         }
