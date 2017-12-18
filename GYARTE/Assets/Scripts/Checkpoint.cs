@@ -9,6 +9,8 @@ public class Checkpoint: MonoBehaviour {
     public bool alreadyPlayed = false;
     public GameObject greencheckPointModel;
     public GameObject redcheckPointModel;
+    [Header("Misc")]
+    public AudioManager aM;
     #endregion
 
     void Start()
@@ -16,6 +18,8 @@ public class Checkpoint: MonoBehaviour {
         gameManager = FindObjectOfType<GameManager>();
         redcheckPointModel.SetActive(true);
         greencheckPointModel.SetActive(false);
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
     }
 
    void OnTriggerEnter(Collider col)
@@ -23,7 +27,8 @@ public class Checkpoint: MonoBehaviour {
         if(col.tag == "Player" && !alreadyPlayed)
         {
             gameManager.currentSpawnPoint = gameObject;
-            Debug.Log("Entered " + gameManager.currentSpawnPoint + "!!");
+            // Debug.Log("Entered " + gameManager.currentSpawnPoint + "!!");
+            aM.Play("Checkpoint");
             alreadyPlayed = true;
             redcheckPointModel.SetActive(false);
             greencheckPointModel.SetActive(true);

@@ -11,12 +11,16 @@ public class PlayerHealth: MonoBehaviour {
     bool isDead = false;
     [Header("UI stuff")]
     public Image healthBar;
+    [Header("Misc")]
+    public AudioManager aM;
     #endregion
 
     void Start()
     {
         currenthealth = startinghealth;
         healthBar = GameObject.Find("PlayerHP").GetComponent<Image>();
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
     }
 
     public void TakeDamage(float amount)
@@ -25,7 +29,7 @@ public class PlayerHealth: MonoBehaviour {
             return;
 
         currenthealth -= amount;
-
+        aM.Play("PlayerTakeDamage");
         healthBar.fillAmount = currenthealth / startinghealth;
         //Refilla HP bar vid respawn!!!!!!!!
 

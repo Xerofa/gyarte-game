@@ -8,12 +8,16 @@ public class Points: MonoBehaviour {
     public GameObject pickupPointsEffect;
     public Text scoreText;
     public int amountPickedUp;
+    [Header("Misc")]
+    public AudioManager aM;
     #endregion
 
     void Start()
     {
         amountPickedUp = 0;
         scoreText.text = amountPickedUp.ToString();
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
     }
 
   void OnTriggerEnter(Collider col)
@@ -21,6 +25,7 @@ public class Points: MonoBehaviour {
         if (col.CompareTag("Player"))
         {
             PickupPoints();
+            aM.Play("CoinPickup");
         }
     }
 

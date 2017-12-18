@@ -21,14 +21,17 @@ public class EnemyAI: MonoBehaviour {
     public Camera enemyCamera;
     public float timeBetweenEnemyAttack;
     float timer;
+    [Header("Misc")]
+    public AudioManager aM;
     #endregion
 
     void Start () 
    {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
-
-   }
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
+    }
 	
    void FixedUpdate () 
    {
@@ -53,6 +56,7 @@ public class EnemyAI: MonoBehaviour {
             if (dist <= agent.stoppingDistance && timer >= timeBetweenEnemyAttack)
             {
                 Attack();
+                aM.Play("EnemyAttack");
                 FaceTarget();
             }
         }

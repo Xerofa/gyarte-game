@@ -59,14 +59,74 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Theme
-    clip: {fileID: 8300000, guid: 009c3990540753744bb6899aa4cdd9ec, type: 3}
+    clip: {fileID: 8300000, guid: a040a157c4f4b3d48bd7122675d1e812, type: 3}
     volume: 0.364
-    pitch: 0.57
+    pitch: 0.8
     loop: 1
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: f8aa5ccd5ad214945acb8f3eb3179ad3, type: 3}
     volume: 0.364
     pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: Land
+    clip: {fileID: 8300000, guid: 841e0f3520d1b6f40883c6f981de1802, type: 3}
+    volume: 0.364
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerMeleeAttack
+    clip: {fileID: 8300000, guid: 6a7cae39f11f7a141bb6466070e4b4b5, type: 3}
+    volume: 0.364
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerRangedAttack
+    clip: {fileID: 8300000, guid: 2dcfaeedefabbd747bcb3fc4b4450e72, type: 3}
+    volume: 0.364
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyAttack
+    clip: {fileID: 8300000, guid: 3c908a568231c95438842a638e71b7b2, type: 3}
+    volume: 0.364
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: CoinPickup
+    clip: {fileID: 8300000, guid: 0d183ed668b45904484a19e7c492a485, type: 3}
+    volume: 0.364
+    pitch: 1.4
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerTakeDamage
+    clip: {fileID: 8300000, guid: a813672cf4f97cc458cfc8d0a5af6d35, type: 3}
+    volume: 0.364
+    pitch: 1.77
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyTakeDamage
+    clip: {fileID: 8300000, guid: 0884b620791f6c546afff3ab84c8d6ed, type: 3}
+    volume: 0.364
+    pitch: 0.83
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDead
+    clip: {fileID: 8300000, guid: 54baedc6dfdaf254f9ca6841151dd0f7, type: 3}
+    volume: 0.364
+    pitch: 0.51
+    loop: 0
+    source: {fileID: 0}
+  - name: Checkpoint
+    clip: {fileID: 8300000, guid: 719ffdd2504887f4ea669ba863e01ef6, type: 3}
+    volume: 0.364
+    pitch: 0.51
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 6f723269d9120d7498c80e53a3f187cc, type: 3}
+    volume: 0.364
+    pitch: 0.51
     loop: 0
     source: {fileID: 0}

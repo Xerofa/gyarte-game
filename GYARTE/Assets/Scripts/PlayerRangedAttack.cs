@@ -18,6 +18,8 @@ public class PlayerRangedAttack: MonoBehaviour {
     public static int currentAmmo;
     [Header("UI STUFF")]
     public Text ammoText;
+    [Header("Misc")]
+    public AudioManager aM;
     #endregion
 
     void Start()
@@ -26,6 +28,8 @@ public class PlayerRangedAttack: MonoBehaviour {
         currentAmmo = maxAmmo;
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
         ammoText.text = "Ammo: " + currentAmmo.ToString();
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -36,6 +40,7 @@ public class PlayerRangedAttack: MonoBehaviour {
         if (Input.GetKeyDown("mouse 0") && timer >= timeBetweenShots)
         {
             RangedAttack();
+            aM.Play("PlayerRangedAttack");
         }
         ammoText.text = "Ammo: " + currentAmmo.ToString();
     }

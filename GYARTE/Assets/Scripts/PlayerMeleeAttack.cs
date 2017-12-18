@@ -12,11 +12,16 @@ public class PlayerMeleeAttack : MonoBehaviour
     public float meleeRange;
     public float meleeDamage;
     public int ammoWhenHitEnemy;
+    [Header("Misc")]
+    public AudioManager aM;
+
     #endregion
 
     void Start()
     {
         layerMask = ~layerMask;
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
     }
     
     void Update()
@@ -24,6 +29,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetKeyDown("mouse 1"))
         {
             MeleeAttack();
+            aM.Play("PlayerMeleeAttack");
         }
     }
 

@@ -13,6 +13,8 @@ public class GameManager: MonoBehaviour {
     public Image _healthBar;
     public static int remainingLives = 3;
     public GameObject gameOverUI;
+    [Header("Misc")]
+    public AudioManager aM;
     #endregion
 
     void Start () 
@@ -25,6 +27,8 @@ public class GameManager: MonoBehaviour {
           {
             Destroy(gameObject);
           }
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
     }
 	
     void Update()
@@ -63,6 +67,7 @@ public class GameManager: MonoBehaviour {
 
     public void EndGame()
     {
+        aM.Play("GameOver");
         Debug.Log("Game Over!");
         gameOverUI.SetActive(true);
     }
