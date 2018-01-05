@@ -5,12 +5,9 @@ using UnityEngine;
 public class CameraFollowPlayer: MonoBehaviour {
     #region Variables
     public Transform player;
-    public Transform cameraFollow;
     float checkForPlayer = 0;
 
-    public float cameraOffsetX;
-    public float cameraOffsetY;
-    public float cameraOffsetZ;
+    public Vector3 offset;
     #endregion
 	void Start()
     {
@@ -31,7 +28,7 @@ public class CameraFollowPlayer: MonoBehaviour {
             return;
         }
 
-        cameraFollow.position = new Vector3(player.position.x + cameraOffsetX, 0 + cameraOffsetY, player.position.z / 1.5f + cameraOffsetZ);
+        transform.position = player.position + offset;
     }
 
     void FindPlayer()

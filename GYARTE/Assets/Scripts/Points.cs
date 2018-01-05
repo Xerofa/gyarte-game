@@ -7,7 +7,7 @@ public class Points: MonoBehaviour {
     #region Variables
     public GameObject pickupPointsEffect;
     public Text scoreText;
-    public int amountPickedUp;
+    public static int amountPickedUp;
     [Header("Misc")]
     public AudioManager aM;
     #endregion
