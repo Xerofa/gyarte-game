@@ -163,8 +163,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152152057562576}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 8, y: 0.575, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.11, y: 18, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 4862600292663116}
   - {fileID: 4367086907390666}
@@ -481,6 +481,7 @@ MonoBehaviour:
   range: 1.5
   enemyCamera: {fileID: 20328125425268170}
   timeBetweenEnemyAttack: 1.5
+  aM: {fileID: 0}
 --- !u!114 &114301044805915262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -495,6 +496,7 @@ MonoBehaviour:
   startinghealth: 50
   currenthealth: 0
   healthBar: {fileID: 114694877706564188}
+  aM: {fileID: 0}
 --- !u!114 &114616941558183944
 MonoBehaviour:
   m_ObjectHideFlags: 1

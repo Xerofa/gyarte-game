@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         }
         if(timerSound > .5f)  //Checks every half a second instead of all the time
         {
-             if (rb.velocity.y == 0)
+             if (rb.velocity.y < 0.05f)
              {
                 if(Input.GetButton("Horizontal") || Input.GetButton("Vertical") && timerSound > .7f)
                 {

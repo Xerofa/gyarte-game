@@ -172,8 +172,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1691369075450248}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -13.57, y: 18.21, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -13.57, y: 19.07, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4319471421719556}
   - {fileID: 4362154954820406}
@@ -454,6 +454,7 @@ MonoBehaviour:
   meleeRange: 3
   meleeDamage: 25
   ammoWhenHitEnemy: 1
+  aM: {fileID: 0}
 --- !u!114 &114075307510222832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,6 +501,7 @@ MonoBehaviour:
   timeBetweenShots: 0.5
   maxAmmo: 5
   ammoText: {fileID: 0}
+  aM: {fileID: 0}
 --- !u!114 &114300436276995414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,6 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currenthealth: 0
   healthBar: {fileID: 0}
+  aM: {fileID: 0}
 --- !u!114 &114739953738237298
 MonoBehaviour:
   m_ObjectHideFlags: 1

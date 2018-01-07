@@ -8,6 +8,7 @@ public class PlayerHealth: MonoBehaviour {
     //HP ändrad till 1000 för test bara, kommer att ändras tillbaks.
     public static float startinghealth = 1f;
     public float currenthealth;
+    public float hazardDamage = 9999;
     bool isDead = false;
     [Header("UI stuff")]
     public Image healthBar;
@@ -37,6 +38,14 @@ public class PlayerHealth: MonoBehaviour {
         {
             GameManager.KillPlayer(this);
             isDead = true;
+        }
+    }
+
+    void OnCollisionEnter()
+    {
+        if(this.tag == "Hazard")
+        {
+            TakeDamage(hazardDamage);
         }
     }
 }
