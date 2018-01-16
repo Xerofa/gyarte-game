@@ -5,9 +5,15 @@ public class GameOverUI: MonoBehaviour {
     #region Variables
     public SceneFader sceneFader;
     public string menuSceneName;
+    [Header("Misc")]
+    public AudioManager aM;
     #endregion
 
-
+    void Start()
+    {
+        aM = GetComponent<AudioManager>();
+        aM = FindObjectOfType<AudioManager>();
+    }
     public void Quit()
     {
         Application.Quit();
@@ -19,6 +25,7 @@ public class GameOverUI: MonoBehaviour {
         sceneFader.FadeTo(SceneManager.GetActiveScene().name);
         GameManager.remainingLives = 3;
         //Debug.Log(GameManager.remainingLives);
+        aM.Play("Theme");
     }
 
     public void Menu()

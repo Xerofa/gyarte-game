@@ -56,7 +56,6 @@ public class PlayerRangedAttack: MonoBehaviour {
         if (Physics.Raycast(rangedAttackCamera.transform.position, rangedAttackCamera.transform.forward, out hit, range, layerMask))
         {
             Debug.Log(hit.transform.name);
-            Debug.DrawLine(firePoint.position, hit.point, Color.red);
             EnemyHealth enemy = hit.transform.GetComponent<EnemyHealth>();
             if (enemy != null)
             {

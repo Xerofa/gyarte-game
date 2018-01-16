@@ -70,6 +70,7 @@ public class GameManager: MonoBehaviour {
         aM.Play("GameOver");
         Debug.Log("Game Over!");
         gameOverUI.SetActive(true);
+        aM.Stop("Theme");
     }
 
     public static void LevelComplete()

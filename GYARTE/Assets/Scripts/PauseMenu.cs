@@ -7,9 +7,11 @@ public class PauseMenu: MonoBehaviour {
     public GameObject pRA;
     public string mainMenuLevel;
     public SceneFader sceneFader;
+
     #endregion
 
- void Update()
+
+    void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {

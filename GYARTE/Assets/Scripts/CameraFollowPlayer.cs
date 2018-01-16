@@ -42,6 +42,16 @@ public class CameraFollowPlayer: MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.tag == "Enviroment")
+        {
 
+        }
+        else
+        {
+            transform.position = player.position + offset;
+        }
+    }
 
 }

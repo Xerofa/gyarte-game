@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth: MonoBehaviour {
     #region Variables
     //HP ändrad till 1000 för test bara, kommer att ändras tillbaks.
-    public static float startinghealth = 1f;
+    public static float startinghealth = 100f;
     public float currenthealth;
     public float hazardDamage = 9999;
     bool isDead = false;
@@ -41,9 +41,9 @@ public class PlayerHealth: MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision col)
     {
-        if(this.tag == "Hazard")
+        if(col.gameObject.tag == "Hazard")
         {
             TakeDamage(hazardDamage);
         }
