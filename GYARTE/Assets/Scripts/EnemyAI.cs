@@ -37,7 +37,7 @@ public class EnemyAI: MonoBehaviour {
    {
         timer += Time.deltaTime;
 
-        if(!agent.pathPending && agent.remainingDistance < 2f)
+        if (!agent.pathPending && agent.remainingDistance < 2f)
         {
             GoToNextPoint();
         }

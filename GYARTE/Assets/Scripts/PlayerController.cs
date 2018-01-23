@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
             currentMovementSpeed = airMovementSpeed;
             aM.Play("Jump");
         }
-        if(timerSound > 2f)  //Checks every half a second instead of all the time
+        if(timerSound > 2f)  //Checks every 2seconds second instead of all the time
         {
              if (rb.velocity.y < 0.05f)
              {
