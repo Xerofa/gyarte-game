@@ -488,7 +488,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 43f42fe153f03a94087e14625abf8858, type: 2}
+  - {fileID: 2100000, guid: b7c2491f0092ced459d03b1280dd3c3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -685,7 +685,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.40000004, g: 0.4431373, b: 0.48235297, a: 1}
+  m_BackGroundColor: {r: 0.5529412, g: 0.43529412, b: 0.30980393, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

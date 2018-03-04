@@ -32,6 +32,7 @@ public class Checkpoint: MonoBehaviour {
             alreadyPlayed = true;
             redcheckPointModel.SetActive(false);
             greencheckPointModel.SetActive(true);
+            GameManager.remainingLives++;
         }
     }
 }

@@ -42,5 +42,6 @@ public class EnemyHealth : MonoBehaviour {
     {
         isDead = true;
         Destroy(this.gameObject);
+        
     }
 }
